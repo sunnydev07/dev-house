@@ -1,0 +1,25 @@
+{
+  "name": "@devhouse/worker",
+  "version": "2.4.1",
+  "type": "module",
+  "main": "./src/worker.ts",
+  "scripts": {
+    "dev": "tsx watch src/worker.ts",
+    "start": "node --import tsx src/worker.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@devhouse/core": "workspace:*",
+    "@devhouse/db": "workspace:*",
+    "@devhouse/media": "workspace:*",
+    "@devhouse/agents": "workspace:*",
+    "@devhouse/connectors": "workspace:*",
+    "bullmq": "^5.28.2",
+    "ioredis": "^5.4.1",
+    "pino": "^9.5.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
+}

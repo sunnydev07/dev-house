@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="dark"] {
+  /* Linear / Raycast Precision Obsidian Elevation Ladder */
+  --bg: #090A0F;
+  --surface: #121318;
+  --surface-raised: #181920;
+  --surface-hover: #1E2028;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #ECEEF4;
+  --text-muted: #8A8F9E;
+  --accent: #F2A33A;
+  --success: #5Ead82;
+  --warning: #D4A74A;
+  --danger: #D95C54;
+  --info: #7895B2;
+  --platform-linkedin: #5B89B4;
+  --platform-instagram: #C46D84;
+  --platform-youtube: #CC5A52;
+}
+
+[data-theme="light"] {
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --surface-raised: #F0F2F6;
+  --surface-hover: #E6E9F0;
+  --border: rgba(15, 18, 28, 0.09);
+  --border-strong: rgba(15, 18, 28, 0.16);
+  --text: #11131A;
+  --text-muted: #5E6472;
+  --accent: #D47E17;
+  --success: #2F7A54;
+  --warning: #9C7018;
+  --danger: #B83A32;
+  --info: #43617A;
+  --platform-linkedin: #36648B;
+  --platform-instagram: #944654;
+  --platform-youtube: #A63A32;
+}
+
+@keyframes ember-breathe {
+  0%, 100% {
+    opacity: 0.95;
+    box-shadow: 0 0 0 0 rgba(242, 163, 58, 0.45);
+  }
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 0 6px rgba(242, 163, 58, 0);
+  }
+}
+
+.ember-breathing {
+  animation: ember-breathe 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ember-breathing {
+    animation: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}

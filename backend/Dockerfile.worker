@@ -1,0 +1,27 @@
+# syntax=docker/dockerfile:1.7
+FROM node:22-alpine AS base
+RUN apk add --no-cache ffmpeg
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable && corepack prepare pnpm@9.12.3 --activate
+WORKDIR /app
+
+FROM base AS deps
+COPY package.json pnpm-workspace.yaml tsconfig.base.json ./
+COPY apps/api/package.json ./apps/api/package.json
+COPY apps/worker/package.json ./apps/worker/package.json
+COPY packages/core/package.json ./packages/core/package.json
+COPY packages/db/package.json ./packages/db/package.json
+COPY packages/providers/package.json ./packages/providers/package.json
+COPY packages/media/package.json ./packages/media/package.json
+COPY packages/agents/package.json ./packages/agents/package.json
+COPY packages/connectors/package.json ./packages/connectors/package.json
+COPY packages/mcp/package.json ./packages/mcp/package.json
+RUN pnpm install --no-frozen-lockfile
+
+FROM deps AS runtime
+COPY . .
+ENV NODE_ENV=production
+RUN mkdir -p /var/devhouse/watch-inbox /tmp/devhouse-ffmpeg && chown -R node:node /var/devhouse /tmp/devhouse-ffmpeg
+USER node
+CMD ["pnpm", "--filter", "@devhouse/worker", "start"]

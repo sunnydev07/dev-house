@@ -1,0 +1,22 @@
+{
+  "name": "dev-house-fullstack-live",
+  "version": "2.4.1",
+  "private": true,
+  "description": "Dev House AI Agent Orchestration Console (Next.js 15) + Contract-First Backend & MCP Server (Fastify v5, Drizzle/PostgreSQL 16, BullMQ/Redis, 13-Agent DAG, 6 BYOK Providers)",
+  "packageManager": "pnpm@9.12.3",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev:backend": "pnpm --dir backend dev",
+    "dev:frontend": "pnpm --dir frontend dev",
+    "build:backend": "pnpm --dir backend build",
+    "build:frontend": "pnpm --dir frontend build",
+    "typecheck": "pnpm --dir backend typecheck && pnpm --dir frontend typecheck",
+    "lint": "pnpm --dir backend lint && pnpm --dir frontend lint",
+    "test": "pnpm --dir backend test",
+    "db:migrate": "pnpm --dir backend db:migrate",
+    "db:seed": "pnpm --dir backend db:seed",
+    "mcp:stdio": "pnpm --dir backend mcp:stdio"
+  }
+}

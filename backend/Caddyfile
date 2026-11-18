@@ -1,0 +1,21 @@
+{
+  email ops@devhouse.internal
+}
+
+api.devhouse.internal, localhost {
+  encode zstd gzip
+
+  # SSE stream requires flush_interval -1 for immediate event delivery
+  @sse path /api/v1/events/stream* /v1/events/stream*
+  reverse_proxy @sse api:4000 {
+    flush_interval -1
+  }
+
+  # MCP Streamable HTTP endpoint
+  @mcp path /mcp* /v1/mcp*
+  reverse_proxy @mcp api:4000 {
+    flush_interval -1
+  }
+
+  reverse_proxy api:4000
+}

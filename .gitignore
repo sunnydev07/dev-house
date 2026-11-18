@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js / build output
+.next/
+out/
+dist/
+build/
+turbopack/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# TypeScript / tooling caches
+*.tsbuildinfo
+.vite/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

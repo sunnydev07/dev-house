@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="Animated demo: an approval card is reviewed, the Approve and publish button is clicked, and a confirmation toast appears.">
+  <defs>
+    <linearGradient id="demoBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0D13"/>
+      <stop offset="1" stop-color="#121318"/>
+    </linearGradient>
+    <radialGradient id="demoGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F2A33A" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#F2A33A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .sans { font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .label { font-size: 11px; letter-spacing: 1.8px; fill: #F2A33A; font-weight: 700; }
+      .title { font-size: 17px; fill: #ECEEF4; font-weight: 600; }
+      .body { font-size: 12.5px; fill: #9AA0AE; }
+      .meta { font-size: 10.5px; fill: #6F7583; }
+      .btnText { font-size: 12.5px; fill: #1A1408; font-weight: 700; }
+      .toastTitle { font-size: 13px; fill: #ECEEF4; font-weight: 600; }
+      .toastBody { font-size: 11px; fill: #9AA0AE; }
+
+      /* cursor travels in from the lower right and clicks the button */
+      @keyframes cursorTour {
+        0%   { transform: translate(170px, 130px); opacity: 0; }
+        8%   { opacity: 1; }
+        34%  { transform: translate(0px, 0px); }
+        42%  { transform: translate(0px, 0px) scale(0.86); }
+        50%  { transform: translate(0px, 0px) scale(1); }
+        88%  { opacity: 1; }
+        100% { transform: translate(0px, 0px); opacity: 0; }
+      }
+      @keyframes clickRipple {
+        0%, 40% { opacity: 0; transform: scale(0.4); }
+        46% { opacity: 0.55; }
+        70%, 100% { opacity: 0; transform: scale(2.6); }
+      }
+      @keyframes btnPress {
+        0%, 38% { transform: translateY(0); }
+        44% { transform: translateY(1.5px); }
+        52%, 100% { transform: translateY(0); }
+      }
+      @keyframes btnGlow {
+        0%, 40% { opacity: 0; }
+        48% { opacity: 1; }
+        72%, 100% { opacity: 0.35; }
+      }
+      @keyframes toastIn {
+        0%, 52% { opacity: 0; transform: translateY(10px); }
+        60%, 88% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(0); }
+      }
+      @keyframes checkDraw {
+        0%, 56% { stroke-dashoffset: 22; opacity: 0; }
+        60% { opacity: 1; }
+        74%, 100% { stroke-dashoffset: 0; opacity: 1; }
+      }
+      @keyframes cardFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+      .cursor { animation: cursorTour 9s cubic-bezier(0.45, 0, 0.2, 1) infinite; transform-box: view-box; }
+      .ripple { animation: clickRipple 9s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+      .btn { animation: btnPress 9s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+      .btnGlow { animation: btnGlow 9s ease-in-out infinite; }
+      .toast { animation: toastIn 9s ease-out infinite; }
+      .check { stroke-dasharray: 22; animation: checkDraw 9s ease-out infinite; }
+      .card { animation: cardFloat 7s ease-in-out infinite; }
+      @media (prefers-reduced-motion: reduce) {
+        .cursor, .ripple, .btn, .btnGlow, .toast, .check, .card { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="400" rx="22" fill="url(#demoBg)"/>
+  <ellipse cx="820" cy="120" rx="380" ry="200" fill="url(#demoGlow)"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="398.5" rx="22" fill="none" stroke="#FFFFFF" stroke-opacity="0.09"/>
+
+  <text x="60" y="52" class="sans label">THE HUMAN GATE</text>
+  <text x="60" y="80" class="sans body">Agents do the work. One click ships it — or sends it back with a note.</text>
+
+  <!-- approval card -->
+  <g class="card" filter="url(#cardShadow)">
+    <rect x="60" y="104" width="700" height="236" rx="16" fill="#15171E" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <rect x="60" y="104" width="700" height="44" rx="16" fill="#1B1D25"/>
+    <rect x="60" y="132" width="700" height="16" fill="#1B1D25"/>
+    <circle cx="84" cy="126" r="4" fill="#D95C54" fill-opacity="0.8"/>
+    <circle cx="100" cy="126" r="4" fill="#D4A74A" fill-opacity="0.8"/>
+    <circle cx="116" cy="126" r="4" fill="#5EAD82" fill-opacity="0.8"/>
+    <text x="138" y="130" class="sans meta">approval · apr_01 · Instagram Reel · 9:16</text>
+    <text x="728" y="130" class="sans meta" text-anchor="end">v3</text>
+
+    <text x="88" y="178" class="sans title">Move dependency resolution out of the prompt</text>
+    <text x="88" y="200" class="sans body">Kahn's topological sort catches cyclic task graphs in 0.4 ms —</text>
+    <text x="88" y="219" class="sans body">and the post walks through the hybrid scheduler that ships it.</text>
+
+    <rect x="88" y="238" width="210" height="26" rx="13" fill="#5EAD82" fill-opacity="0.10" stroke="#5EAD82" stroke-opacity="0.28"/>
+    <text x="100" y="255" class="sans meta" fill="#8FD0AC">Brand score 96 / 100</text>
+    <rect x="308" y="238" width="196" height="26" rx="13" fill="#7895B2" fill-opacity="0.10" stroke="#7895B2" stroke-opacity="0.28"/>
+    <text x="320" y="255" class="sans meta" fill="#9DB7D3">4 citations verified</text>
+
+    <!-- edit / reject ghost buttons -->
+    <rect x="88" y="288" width="104" height="32" rx="8" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <text x="140" y="308" class="sans meta" text-anchor="middle" fill="#B9BDC9">Edit copy</text>
+    <rect x="200" y="288" width="128" height="32" rx="8" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <text x="264" y="308" class="sans meta" text-anchor="middle" fill="#B9BDC9">Send back</text>
+
+    <!-- click ripple sits behind the label -->
+    <circle class="ripple" cx="656" cy="304" r="16" fill="none" stroke="#FFD08A" stroke-width="1.5"/>
+
+    <!-- approve button -->
+    <g class="btn">
+      <rect x="580" y="288" width="152" height="32" rx="8" fill="#F2A33A"/>
+      <rect class="btnGlow" x="580" y="288" width="152" height="32" rx="8" fill="none" stroke="#F2A33A" stroke-width="2" filter="url(#softGlow)"/>
+      <text x="656" y="308" class="sans btnText" text-anchor="middle">Approve &amp; publish</text>
+    </g>
+  </g>
+
+  <!-- side checklist -->
+  <g>
+    <rect x="792" y="104" width="348" height="236" rx="16" fill="#12141A" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <text x="818" y="138" class="sans meta" fill="#8A8F9E">WHAT THE AGENTS DID</text>
+    <g fill="#5EAD82">
+      <circle cx="822" cy="166" r="3.2"/><circle cx="822" cy="196" r="3.2"/><circle cx="822" cy="226" r="3.2"/><circle cx="822" cy="256" r="3.2"/>
+    </g>
+    <text x="838" y="170" class="sans body" fill="#C9CDD6">Trend scout found the angle + hook</text>
+    <text x="838" y="200" class="sans body" fill="#C9CDD6">Writer drafted 3 platform variants</text>
+    <text x="838" y="230" class="sans body" fill="#C9CDD6">Designer rendered 9:16 + 16:9 covers</text>
+    <text x="838" y="260" class="sans body" fill="#C9CDD6">Fact-checker attached 4 sources</text>
+    <text x="818" y="300" class="sans meta" fill="#6F7583">Scheduled for Tue 09:30 IST once approved</text>
+  </g>
+
+  <!-- success toast -->
+  <g class="toast">
+    <rect x="470" y="352" width="262" height="40" rx="10" fill="#15171E" stroke="#5EAD82" stroke-opacity="0.45"/>
+    <circle cx="492" cy="372" r="8" fill="#5EAD82" fill-opacity="0.16"/>
+    <path class="check" d="M488 372.5 L491 375.5 L497 368.5" fill="none" stroke="#8FD0AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="508" y="369" class="sans toastTitle">Approved · queued</text>
+    <text x="508" y="384" class="sans toastBody">Instagram, YouTube and LinkedIn</text>
+  </g>
+
+  <!-- cursor -->
+  <g class="cursor">
+    <path d="M722 292 L722 314 L727.6 308.6 L731.4 317 L735 315.4 L731.2 307.4 L738.4 307.2 Z" fill="#FFFFFF" stroke="#0B0D13" stroke-width="1.2" stroke-linejoin="round"/>
+  </g>
+</svg>

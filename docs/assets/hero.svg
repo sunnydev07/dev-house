@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="Dev House overview: ingest footage, 13 agents write and design, brand and fact checks, you approve, publish to Instagram, YouTube and LinkedIn.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0D13"/>
+      <stop offset="0.55" stop-color="#090A0F"/>
+      <stop offset="1" stop-color="#121318"/>
+    </linearGradient>
+    <radialGradient id="amberGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F2A33A" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#F2A33A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F2A33A" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#F2A33A"/>
+      <stop offset="1" stop-color="#F2A33A" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#FFFFFF" stroke-opacity="0.035"/>
+    </pattern>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .sans { font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .kicker { font-size: 12.5px; letter-spacing: 5.4px; fill: #F2A33A; font-weight: 700; }
+      .h1 { font-size: 39px; font-weight: 700; fill: #ECEEF4; letter-spacing: -0.8px; }
+      .sub { font-size: 15.5px; fill: #8A8F9E; }
+      .chip { font-size: 10.5px; letter-spacing: 1.6px; fill: #B9BDC9; font-weight: 600; }
+      .step { font-size: 12px; fill: #ECEEF4; font-weight: 600; }
+      .stepnote { font-size: 10.5px; fill: #7C8291; }
+      .faint { fill: #FFFFFF; fill-opacity: 0.06; }
+      .nodeRing { fill: none; stroke: #F2A33A; stroke-opacity: 0.55; stroke-width: 1.4; }
+      .nodeCore { fill: #15171E; stroke: #FFFFFF; stroke-opacity: 0.10; }
+      .icon { fill: none; stroke: #F2A33A; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+      @keyframes breathe { 0%,100% { opacity: 0.14; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.35); } }
+      @keyframes drift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(0,-6px); } }
+      @keyframes shimmer { 0% { transform: translateX(-420px); } 100% { transform: translateX(420px); } }
+
+      .pulse { transform-box: fill-box; transform-origin: center; animation: breathe 4.8s ease-in-out infinite; }
+      .p1 { animation-delay: 0s; } .p2 { animation-delay: 0.9s; } .p3 { animation-delay: 1.8s; }
+      .p4 { animation-delay: 2.7s; } .p5 { animation-delay: 3.6s; }
+      .float { animation: drift 7s ease-in-out infinite; }
+      .sheen { animation: shimmer 6.5s ease-in-out infinite; }
+      @media (prefers-reduced-motion: reduce) {
+        .pulse, .float, .sheen, .packet { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="420" rx="22" fill="url(#bg)"/>
+  <rect width="1200" height="420" rx="22" fill="url(#grid)"/>
+  <ellipse cx="250" cy="120" rx="360" ry="210" fill="url(#amberGlow)"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="418.5" rx="22" fill="none" stroke="#FFFFFF" stroke-opacity="0.09"/>
+
+  <!-- top right badge -->
+  <g>
+    <rect x="932" y="52" width="206" height="32" rx="16" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <circle cx="954" cy="68" r="3.6" fill="#5EAD82"/>
+    <text x="968" y="72" class="sans chip">LOCAL-FIRST · SELF-HOSTED</text>
+  </g>
+
+  <text x="64" y="86" class="sans kicker">DEV HOUSE</text>
+  <text x="64" y="141" class="sans h1">Your content studio,</text>
+  <text x="64" y="187" class="sans h1">staffed by <tspan fill="#F2A33A">13 AI agents.</tspan></text>
+  <text x="64" y="224" class="sans sub">Drop footage or a topic. Agents research, write, design, score and schedule —</text>
+  <text x="64" y="247" class="sans sub">nothing publishes until a human approves it.</text>
+
+  <!-- pipeline rail -->
+  <line x1="100" y1="318" x2="1100" y2="318" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1.5" stroke-dasharray="3 7"/>
+  <g class="sheen" opacity="0.55">
+    <rect x="600" y="315" width="300" height="5" rx="2.5" fill="url(#beam)"/>
+  </g>
+
+  <!-- moving packet -->
+  <g class="packet" filter="url(#glow)">
+    <circle r="9" fill="#F2A33A" fill-opacity="0.25"/>
+    <circle r="4" fill="#FFD08A"/>
+    <animateMotion dur="6.2s" repeatCount="indefinite" path="M100,318 H1100"/>
+  </g>
+
+  <!-- 1. ingest -->
+  <g class="float">
+    <circle class="pulse p1" cx="100" cy="318" r="27" fill="#F2A33A" fill-opacity="0.10"/>
+    <circle class="nodeCore" cx="100" cy="318" r="24"/>
+    <g class="icon">
+      <rect x="90" y="309" width="20" height="18" rx="3"/>
+      <path d="M99 313.5 L105 318 L99 322.5 Z"/>
+    </g>
+    <text x="100" y="366" class="sans step" text-anchor="middle">1 · Ingest</text>
+    <text x="100" y="384" class="sans stepnote" text-anchor="middle">MP4 or a topic</text>
+  </g>
+
+  <!-- 2. agents -->
+  <g class="float">
+    <circle class="pulse p2" cx="340" cy="318" r="27" fill="#F2A33A" fill-opacity="0.10"/>
+    <circle class="nodeCore" cx="340" cy="318" r="24"/>
+    <g class="icon">
+      <circle cx="340" cy="311" r="3.4"/>
+      <circle cx="333" cy="324" r="3.4"/>
+      <circle cx="347" cy="324" r="3.4"/>
+      <path d="M340 314.5 L333.8 321.2 M340 314.5 L346.2 321.2 M336 324 H344"/>
+    </g>
+    <text x="340" y="366" class="sans step" text-anchor="middle">2 · Agent DAG</text>
+    <text x="340" y="384" class="sans stepnote" text-anchor="middle">13 specialists</text>
+  </g>
+
+  <!-- 3. checks -->
+  <g class="float">
+    <circle class="pulse p3" cx="580" cy="318" r="27" fill="#F2A33A" fill-opacity="0.10"/>
+    <circle class="nodeCore" cx="580" cy="318" r="24"/>
+    <g class="icon">
+      <rect x="571" y="307" width="15" height="20" rx="2.5"/>
+      <path d="M575 312.5 h7 M575 317 h7"/>
+      <path d="M575.5 322.5 l2.2 2.2 l4-4.4"/>
+    </g>
+    <text x="580" y="366" class="sans step" text-anchor="middle">3 · Brand + fact check</text>
+    <text x="580" y="384" class="sans stepnote" text-anchor="middle">scores &amp; citations</text>
+  </g>
+
+  <!-- 4. approval -->
+  <g class="float">
+    <circle class="pulse p4" cx="820" cy="318" r="30" fill="#F2A33A" fill-opacity="0.16"/>
+    <circle class="nodeRing" cx="820" cy="318" r="27"/>
+    <circle class="nodeCore" cx="820" cy="318" r="24"/>
+    <g class="icon">
+      <path d="M820 304 l10 4 v7.5 c0 6.4 -4.2 10.6 -10 12 -5.8-1.4 -10-5.6 -10-12 V308 Z"/>
+      <path d="M815.5 317.5 L819 321 L825 313.5"/>
+    </g>
+    <text x="820" y="366" class="sans step" text-anchor="middle">4 · You approve</text>
+    <text x="820" y="384" class="sans stepnote" text-anchor="middle">human in the loop</text>
+  </g>
+
+  <!-- 5. publish -->
+  <g class="float">
+    <circle class="pulse p5" cx="1060" cy="318" r="27" fill="#F2A33A" fill-opacity="0.10"/>
+    <circle class="nodeCore" cx="1060" cy="318" r="24"/>
+    <g class="icon">
+      <path d="M1060 328 V307 M1052.5 314.5 L1060 307 L1067.5 314.5"/>
+      <path d="M1047 324 v5 h26 v-5" opacity="0.65"/>
+    </g>
+    <text x="1060" y="366" class="sans step" text-anchor="middle">5 · Publish</text>
+    <text x="1060" y="384" class="sans stepnote" text-anchor="middle">IG · YouTube · LinkedIn</text>
+  </g>
+</svg>
